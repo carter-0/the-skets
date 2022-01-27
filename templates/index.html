@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - BeanBattlesHacks</title>
+    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">The Skets</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page landing-page"><section style="background-image:url('/assets/1500x500.jpg');color:rgba(0, 0, 0, 0.25);" class="clean-block clean-hero">
+    <div class="backgroundimage">
+    </div>
+    <div class="text" style="color: white;">
+        <h1 style="font-size: 60px;">The Skets</h1>
+        <p></p><button class="btn btn-outline-light btn-lg" type="button">Learn More</button>
+    </div>
+</section>
+        <section class="clean-block clean-info dark">
+            <div class="container">
+                <div class="block-heading"></div>
+            </div>
+            <div>
+                <!--Responsive Image Grid Block-->
+                <!--Photo Grid-->
+                <div>
+                    <!--Comment-->
+                </div>
+            </div>
+        </section>
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <section class="features-blue"></section>
+                    <div class="row align-items-center">
+                        <div class="col-md-6"><video onloadeddata="this.play();" muted="" autoplay="" loop="" width="100%"><source src="https://cdn.discordapp.com/attachments/755797321018638377/936316984801492992/272674240_534046580980200_1337872260410692275_n.mp4" type="video/mp4">
+</video></div>
+                        <div class="col-md-6" style="height: 418.688px;">
+                            <h3 style="font-size: 32px;">Who are the Skets?</h3>
+                            <p style="font-size: 19px;">We are 15-year-old boys from UK currently living in the UK. We started this band as we quickly as possible. trap banger. shushing face.<br></p><br>
+                            <div class="getting-started-info">
+                                <p></p>
+                            </div><button style="width: 100%;height: 15%" type="button" class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <ul class="list-unstyled fa-ul"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="clean-block clean-info dark">
+        <div class="container">
+            <div class="block-heading"></div>
+            <div class="row align-items-center">
+                <div class="col-md-6" style="height: 418.688px;">
+                    <h3 style="font-size: 32px;">Send an Anonymous message:</h3>
+                    <p style="font-size: 19px;"></p><textarea id="msg" style="width: 100%;height: 40%;" placeholder="suck your mum..."></textarea><br>
+                    <div class="getting-started-info">
+                        <p></p>
+                    </div><button onclick="httpGetAsync('/submit_message?message='+document.getElementById('msg').value)" style="width: 100%;height: 15%" type="button" class="btn btn-primary">Tell The Skets</button>
+                </div>
+                <div class="col-md-6"><img class="img-thumbnail" src="/assets/sketsIMG_7543.jpg"></div>
+            </div>
+        </div>
+        <div>
+            <!--Responsive Image Grid Block-->
+            <!--Photo Grid-->
+            <div>
+                <!--Comment-->
+            </div>
+        </div>
+    </section>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-3" style="text-align: left;">
+                    <ul>
+                        <li><a href="https://twitter.com/OfficialSkets">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/official_theskets/">Instagram</a></li>
+                        <li><a href="https://discord.gg/ueseRWnr">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2013 The Skets</p>
+        </div>
+    </footer>
+    <script>
+        function httpGetAsync(theUrl, callback)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/assets/script.min.js"></script>
+</body>
+
+</html>
