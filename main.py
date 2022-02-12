@@ -6,6 +6,10 @@ app = Flask(__name__)
 def root():
     return render_template("index.html")
 
+@app.route("/listen")
+def listen():
+    return render_template("listen.html")
+
 @app.route('/assets/<path:path>')
 def send_assets(path):
     return send_from_directory('assets', path)
