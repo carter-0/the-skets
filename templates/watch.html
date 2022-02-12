@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Watching {{songname}} - The Skets</title>
+    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            width: 100%;
+        }
+
+        .list-group-item {
+            border-top-width: thin !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">The Skets</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page">
+        <div id="modal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Comment:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="comment">Your Name:</label>
+                        <br>
+                        <input maxlength="50" id="nameInput">
+                        <br>
+
+                        <label style="margin-top: 15px;" for="comment">Comment:</label>
+                        <textarea maxlength="512" class="form-control" rows="5" id="commentArea"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="httpGetAsync('/api/submit_comment?id={{ id }}&message='+encodeURIComponent(document.getElementById('commentArea').value)+'&name='+encodeURIComponent(document.getElementById('nameInput').value), reloadPage);" type="button" class="btn btn-primary">Add Comment</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info" style="color: rgb(0,0,0) !important;">{{ songname }}:</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="video-container">
+                            <video controls allowfullscreen width="560" height="315" autoplay>
+                            <source src="{{ song_url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 20px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Comments<button data-toggle="modal" data-target="#modal" class="btn btn-primary" type="button" style="width: auto;height: auto;margin: 0px;margin-left: 20px;">Add Comment</button></h3>
+                    </div>
+                    <div class="card-body" style="height:auto;">
+                        <ul class="list-group">
+                            {% if comments %}
+                                {% for i in comments %}
+                                    <li class="list-group-item" style="margin-bottom:6px;">
+                                        <div class="media">
+                                            <div></div>
+                                            <div class="media-body">
+                                                <div class="media" style="overflow:visible;">
+                                                    <div></div>
+                                                    <div class="media-body" style="overflow:visible;">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <p><a href="#">{{ i.name }}:</a> {{ i.message }} <br>
+                                                                <small class="text-muted">{{ i.date }} </small></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <p>No Comments Yet!</p>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-3" style="text-align: left;">
+                    <ul>
+                        <li><a href="https://twitter.com/OfficialSkets">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/official_theskets/">Instagram</a></li>
+                        <li><a href="https://discord.gg/gdHMhxXtDA">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2022 The Skets</p>
+        </div>
+    </footer>
+    <script>
+        function httpGetAsync(theUrl, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+</body>
+
+</html>
