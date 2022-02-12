@@ -15,14 +15,28 @@
     <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="/assets/styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-<meta property="og:title" content="The Skets Official Website">
-<meta property="og:site_name" content="The Skets">
-<meta property="og:url" content="the-skets.carter.red">
-<meta property="og:description" content="">
-<meta property="og:type" content="article">
-<meta property="og:image" content="https://the-skets.carter.red/assets/1500x500.jpg">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-37K2WBR8M6"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-37K2WBR8M6');
+    </script>
+
+    <meta property="og:title" content="The Skets Official Website">
+    <meta property="og:site_name" content="The Skets">
+    <meta property="og:url" content="TheSkets.com">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://the-skets.carter.red/assets/header-new.jpg">
 </head>
 
 <body>
@@ -31,19 +45,20 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/listen">Listen to The Skets</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="page landing-page"><section style="background-image:url('/assets/1500x500.jpg');color:rgba(0, 0, 0, 0.25);" class="clean-block clean-hero">
+    <main class="page landing-page"><section style="background-image:url('/assets/header-new.png');color:rgba(0, 0, 0, 0.25);" class="clean-block clean-hero">
     <div class="backgroundimage">
     </div>
     <div class="text" style="color: white;">
         <h1 style="font-size: 60px;">The Skets</h1>
-        <p></p><button class="btn btn-outline-light btn-lg" type="button">Learn More</button>
+        <p></p><button onclick="document.getElementById('sec1').scrollIntoView(true);" class="btn btn-outline-light btn-lg" type="button">Learn More</button>
     </div>
-</section>
-        <section class="clean-block clean-info dark">
+    </section>
+        <section id="sec1" class="clean-block clean-info dark">
             <div class="container">
                 <div class="block-heading"></div>
             </div>
@@ -62,15 +77,15 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                         <video onloadeddata="this.play();" muted="" autoplay="" loop="" width="100%">
-                            <source src="https://cdn.discordapp.com/attachments/755797321018638377/936316984801492992/272674240_534046580980200_1337872260410692275_n.mp4" type="video/mp4">
+                            <source src="https://static.carter.red/the-skets.mp4" type="video/mp4">
                         </video>
                         </div>
                         <div class="col-md-6" style="height: 418.688px;">
                             <h3 style="font-size: 32px;">Who are the Skets?</h3>
-                            <p style="font-size: 19px;">We are 15-year-old boys from UK currently living in the UK. We started this band as we quickly learned we have a passion for trap bangers. shushing face.<br></p><br>
+                            <p style="font-size: 19px;">We are 15-year-old boys from the UK currently living in the UK. We started this band as we quickly learned we have a passion for trap bangers. shushing face.<br></p><br>
                             <div class="getting-started-info">
                                 <p></p>
-                            </div><button style="width: 100%;height: 15%" type="button" class="btn btn-primary">Explore</button>
+                            </div><button onclick="window.location.href='/listen'" style="width: 100%;height: 15%" type="button" class="btn btn-primary">Listen to The Skets</button>
                         </div>
                     </div>
                 </div>
@@ -87,8 +102,8 @@
             <div class="block-heading"></div>
             <div class="row align-items-center">
                 <div class="col-md-6" style="height: 418.688px;">
-                    <h3 style="font-size: 32px;">Send an Anonymous message:</h3>
-                    <p style="font-size: 19px;"></p><textarea id="msg" style="width: 100%;height: 40%;" placeholder="suck your mum..."></textarea><br>
+                    <h3 style="font-size: 32px;">Send a message to The Skets:</h3>
+                    <p style="font-size: 19px;"></p><textarea id="msg" style="width: 100%;height: 40%;" placeholder="Your Message..."></textarea><br>
                     <div class="getting-started-info">
                         <p></p>
                     </div><button onclick="httpGetAsync('/submit_message?message='+document.getElementById('msg').value);alert('message sent');" style="width: 100%;height: 15%" type="button" class="btn btn-primary">Tell The Skets</button>

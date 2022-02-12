@@ -5,7 +5,17 @@ import mariadb
 app = Flask(__name__)
 
 song_mapping = {
-    "smells-like-teen-spirit": "Smells Like Teen Spirit"
+    "smells-like-teen-spirit": "Smells Like Teen Spirit",
+    "rock-n-roll-star": "Rock N' Roll Star",
+    "caught-by-the-fuzz": "Caught by the Fuzz",
+    "while-my-guitar-gently-weeps": "While My Guitar Gently Weeps"
+}
+
+url_mapping = {
+    "smells-like-teen-spirit": "https://static.carter.red/The%20Skets/Day%202/smells-like-teen-spirit.mp4",
+    "rock-n-roll-star": "https://static.carter.red/The%20Skets/Day%202/rock-n-roll-star.mp4",
+    "caught-by-the-fuzz": "https://static.carter.red/The%20Skets/Day%202/caught-by-the-fuzz.mp4",
+    "while-my-guitar-gently-weeps": "https://static.carter.red/The%20Skets/Day%202/while-my-guitar-gently-weeps.mp4"
 }
 
 def get_comments(video_id):
@@ -82,7 +92,7 @@ def watch(songname):
 
         comment_list.append(comment_dict)
 
-    return render_template("watch.html", songname=song_mapping[songname], song_url="https://static.carter.red/The%20Skets/Day%202/smells-like-teen-spirit.mp4", id=songname, comments=comment_list)
+    return render_template("watch.html", songname=song_mapping[songname], song_url=url_mapping[songname], id=songname, comments=comment_list)
 
 @app.route("/api/submit_comment")
 def submit_comment():
@@ -101,8 +111,23 @@ def submit_message():
     message = request.args.get("message")
     print(message)
 
-    with open('messages', 'a') as f:
-        f.write("\n\n"+message)
+    try:
+        conn = mariadb.connect(
+            user="root",
+            password="***REMOVED***",
+            host="***REMOVED***",
+            port=3306,
+            database="the_skets"
+        )
+    except mariadb.Error as e:
+        print(e)
+
+    c = conn.cursor()
+
+    c.execute("INSERT INTO messages(message) VALUE(?)", (message,))
+
+    conn.commit()
+    conn.close()
 
     return "saved"
 
