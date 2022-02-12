@@ -7,8 +7,12 @@ def root():
     return render_template("index.html")
 
 @app.route('/assets/<path:path>')
-def send_js(path):
+def send_assets(path):
     return send_from_directory('assets', path)
+    
+@app.route('/assets/thumbnails/<path:path>')
+def send_thumb(path):
+    return send_from_directory('assets/thumbnails', path)
 
 @app.route("/submit_message")
 def submit_message():
