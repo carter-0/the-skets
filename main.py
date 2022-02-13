@@ -92,6 +92,8 @@ def watch(songname):
 
         comment_list.append(comment_dict)
 
+    comment_list.reverse()
+
     return render_template("watch.html", songname=song_mapping[songname], song_url=url_mapping[songname], id=songname, comments=comment_list)
 
 @app.route("/api/submit_comment")
