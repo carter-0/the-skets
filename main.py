@@ -12,10 +12,10 @@ song_mapping = {
 }
 
 url_mapping = {
-    "smells-like-teen-spirit": "https://static.carter.red/The%20Skets/Day%202/smells-like-teen-spirit.mp4",
-    "rock-n-roll-star": "https://static.carter.red/The%20Skets/Day%202/rock-n-roll-star.mp4",
-    "caught-by-the-fuzz": "https://static.carter.red/The%20Skets/Day%202/caught-by-the-fuzz.mp4",
-    "while-my-guitar-gently-weeps": "https://static.carter.red/The%20Skets/Day%202/while-my-guitar-gently-weeps.mp4"
+    "smells-like-teen-spirit": "https://static.theskets.com/Day2/optimised/smells-like-teen-spirit-optimised.mp4",
+    "rock-n-roll-star": "https://static.theskets.com/Day2/optimised/rock-n-roll-star-optimised.mp4",
+    "caught-by-the-fuzz": "https://static.theskets.com/Day2/optimised/caught-by-the-fuzz-optimised.mp4",
+    "while-my-guitar-gently-weeps": "https://static.theskets.com/Day2/optimised/while-my-guitar-gently-weeps-optimised.mp4"
 }
 
 def get_comments(video_id):
