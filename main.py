@@ -4,6 +4,9 @@ import mariadb
 
 app = Flask(__name__)
 
+if True: ##censor password
+    password = "***REMOVED***"
+
 song_mapping = {
     "smells-like-teen-spirit": "Smells Like Teen Spirit",
     "rock-n-roll-star": "Rock N' Roll Star",
@@ -22,7 +25,7 @@ def get_comments(video_id):
     try:
         conn = mariadb.connect(
             user="root",
-            password="***REMOVED***",
+            password=password,
             host="***REMOVED***",
             port=3306,
             database="the_skets"
@@ -55,7 +58,7 @@ def add_comment(username, message, video_id):
     try:
         conn = mariadb.connect(
             user="root",
-            password="***REMOVED***",
+            password=password,
             host="***REMOVED***",
             port=3306,
             database="the_skets"
@@ -116,7 +119,7 @@ def submit_message():
     try:
         conn = mariadb.connect(
             user="root",
-            password="***REMOVED***",
+            password=password,
             host="***REMOVED***",
             port=3306,
             database="the_skets"
