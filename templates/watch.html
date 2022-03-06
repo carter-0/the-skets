@@ -100,13 +100,13 @@
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="video-container">
-                            {% if link_type == 'Static' %}
+                            {% if link_type = 'Static' %}
                                 <video style="max-width:100%; height:auto; width:100%;" controls allowfullscreen playsinline width="560" height="315">
                                 <source src="{{ song_url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                                 </video>
                             {% else %}
-                            <iframe style="max-width:100%; height:auto; width:100%;" width="560" height="315" src="{{ song_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="{{ song_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             {% endif %}
                         </div>
                     </div>
