@@ -101,12 +101,12 @@
                     <div class="col">
                         <div class="video-container">
                             {% if link_type == 'Static' %}
-                                <video controls allowfullscreen playsinline width="560" height="315">
+                                <video controls allowfullscreen playsinline >
                                 <source src="{{ song_url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                                 </video>
                             {% else %}
-                            <iframe width="560" height="315" src="{{ song_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="{{ song_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             {% endif %}
                         </div>
                     </div>
