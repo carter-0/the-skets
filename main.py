@@ -109,7 +109,7 @@ def watch(songname):
 
     comment_list.reverse()
 
-    return render_template("watch.html", link_type=("YouTube" if "static.theskets.com" not in song_mapping[songname] else "Static"), songname=song_mapping[songname], song_url=url_mapping[songname], id=songname, comments=comment_list)
+    return render_template("watch.html", link_type=("YouTube" if "static.theskets.com" not in url_mapping[songname] else "Static"), songname=song_mapping[songname], song_url=url_mapping[songname], id=songname, comments=comment_list)
 
 @app.route("/api/submit_comment")
 def submit_comment():
