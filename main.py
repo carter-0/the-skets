@@ -8,6 +8,12 @@ if True: ##censor password
     password = "***REMOVED***"
 
 song_mapping = {
+    "day-1-live-forever": "Live Forever - Oasis",
+    "day-1-deer-in-the-headlights": "Deer In The Healdights - Ben Birch",
+    "day-1-rock-n-roll-star": "Rock N' Roll Star - Oasis",
+    "day-1-supersonic": "Supersonic - Oasis",
+    "day-1-wonderwall": "Wonderwall - Oasis",
+    "day-1-caught-by-the-fuzz": "Caught by the Fuzz - Supergrass",
     "day-2-smells-like-teen-spirit": "Smells Like Teen Spirit - Nirvana",
     "day-2-rock-n-roll-star": "Rock N' Roll Star - Oasis",
     "day-2-caught-by-the-fuzz": "Caught by the Fuzz - Supergrass",
@@ -19,6 +25,12 @@ song_mapping = {
 }
 
 url_mapping = {
+    "day-1-live-forever": "https://static.theskets.com/Day1/The%20Skets%20Live%20in%20M1%20%5BOasis%20-%20Live%20Forever%5D.mp4",
+    "day-1-deer-in-the-headlights": "https://www.youtube-nocookie.com/embed/HTgPUvvPoG8",
+    "day-1-rock-n-roll-star": "https://www.youtube-nocookie.com/embed/QIkNCbcG_so",
+    "day-1-supersonic": "https://www.youtube-nocookie.com/embed/PmR-LFIM14M",
+    "day-1-wonderwall": "https://www.youtube-nocookie.com/embed/KKId98dQos4",
+    "day-1-caught-by-the-fuzz": "https://www.youtube-nocookie.com/embed/9nXYZt7K7_s",
     "day-2-smells-like-teen-spirit": "https://static.theskets.com/Day2/optimised/smells-like-teen-spirit-optimised.mp4",
     "day-2-rock-n-roll-star": "https://static.theskets.com/Day2/optimised/rock-n-roll-star-optimised.mp4",
     "day-2-caught-by-the-fuzz": "https://static.theskets.com/Day2/optimised/caught-by-the-fuzz-optimised.mp4",
