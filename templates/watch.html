@@ -100,7 +100,7 @@
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="video-container">
-                            {% if link_type = 'Static' %}
+                            {% if link_type == 'Static' %}
                                 <video style="max-width:100%; height:auto; width:100%;" controls allowfullscreen playsinline width="560" height="315">
                                 <source src="{{ song_url }}" type="video/mp4">
                                 Your browser does not support the video tag.
