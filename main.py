@@ -8,17 +8,25 @@ if True: ##censor password
     password = "***REMOVED***"
 
 song_mapping = {
-    "smells-like-teen-spirit": "Smells Like Teen Spirit",
-    "rock-n-roll-star": "Rock N' Roll Star",
-    "caught-by-the-fuzz": "Caught by the Fuzz",
-    "while-my-guitar-gently-weeps": "While My Guitar Gently Weeps"
+    "day-2-smells-like-teen-spirit": "Smells Like Teen Spirit - Nirvana",
+    "day-2-rock-n-roll-star": "Rock N' Roll Star - Oasis",
+    "day-2-caught-by-the-fuzz": "Caught by the Fuzz - Supergrass",
+    "day-2-while-my-guitar-gently-weeps": "While My Guitar Gently Weeps - The Beatles",
+    "day-3-alright": "Alright - Supergrass",
+    "day-3-local-boy": "Local Boy - The Rifles",
+    "day-3-while-my-guitar-gently-weeps": "While My Guitar Gently Weeps - The Beatles",
+    "day-3-smells-like-teen-spirit": "Smells Like Teen Spirit - Nirvana"
 }
 
 url_mapping = {
-    "smells-like-teen-spirit": "https://static.theskets.com/Day2/optimised/smells-like-teen-spirit-optimised.mp4",
-    "rock-n-roll-star": "https://static.theskets.com/Day2/optimised/rock-n-roll-star-optimised.mp4",
-    "caught-by-the-fuzz": "https://static.theskets.com/Day2/optimised/caught-by-the-fuzz-optimised.mp4",
-    "while-my-guitar-gently-weeps": "https://static.theskets.com/Day2/optimised/while-my-guitar-gently-weeps-optimised.mp4"
+    "day-2-smells-like-teen-spirit": "https://static.theskets.com/Day2/optimised/smells-like-teen-spirit-optimised.mp4",
+    "day-2-rock-n-roll-star": "https://static.theskets.com/Day2/optimised/rock-n-roll-star-optimised.mp4",
+    "day-2-caught-by-the-fuzz": "https://static.theskets.com/Day2/optimised/caught-by-the-fuzz-optimised.mp4",
+    "day-2-while-my-guitar-gently-weeps": "https://static.theskets.com/Day2/optimised/while-my-guitar-gently-weeps-optimised.mp4",
+    "day-3-alright": "https://www.youtube-nocookie.com/embed/19jg1cSniYE",
+    "day-3-local-boy": "https://www.youtube-nocookie.com/embed/t-CCvlnw-dg",
+    "day-3-while-my-guitar-gently-weeps": "https://www.youtube-nocookie.com/embed/A70eTmmvGoE",
+    "day-3-smells-like-teen-spirit": "https://www.youtube-nocookie.com/embed/CL9d6gIKUPU"
 }
 
 def get_comments(video_id):
@@ -80,7 +88,11 @@ def root():
 
 @app.route("/listen")
 def listen():
-    return render_template("listen.html")
+    return render_template("listen-main.html")
+
+@app.route("/listen/<day>")
+def listen_day(day):
+    return render_template(f"listen-{day}.html")
 
 @app.route("/watch/<songname>")
 def watch(songname):
@@ -97,7 +109,7 @@ def watch(songname):
 
     comment_list.reverse()
 
-    return render_template("watch.html", songname=song_mapping[songname], song_url=url_mapping[songname], id=songname, comments=comment_list)
+    return render_template("watch.html", link_type=("YouTube" if "static.theskets.com" not in song_mapping[songname] else "Static"), songname=song_mapping[songname], song_url=url_mapping[songname], id=songname, comments=comment_list)
 
 @app.route("/api/submit_comment")
 def submit_comment():
