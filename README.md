@@ -1,3 +1,3 @@
 # The Skets
 
-TheSkets.com source code - (very bad code).
+TheSkets.com source code (very bad code).
