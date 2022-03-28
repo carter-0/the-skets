@@ -1,11 +1,9 @@
 from flask import Flask, request, render_template, send_from_directory
+from config import *
 import datetime
 import mariadb
 
 app = Flask(__name__)
-
-if True: ##censor password
-    password = "***REMOVED***"
 
 song_mapping = {
     "day-1-live-forever": "Live Forever - Oasis",
@@ -45,8 +43,8 @@ def get_comments(video_id):
     try:
         conn = mariadb.connect(
             user="root",
-            password=password,
-            host="***REMOVED***",
+            password=sql_conf["password"],
+            host=sql_conf["host"],
             port=3306,
             database="the_skets"
         )
@@ -78,8 +76,8 @@ def add_comment(username, message, video_id):
     try:
         conn = mariadb.connect(
             user="root",
-            password=password,
-            host="***REMOVED***",
+            password=sql_conf["password"],
+            host=sql_conf["host"],
             port=3306,
             database="the_skets"
         )
@@ -143,8 +141,8 @@ def submit_message():
     try:
         conn = mariadb.connect(
             user="root",
-            password=password,
-            host="***REMOVED***",
+            password=sql_conf["password"],
+            host=sql_conf["host"],
             port=3306,
             database="the_skets"
         )
