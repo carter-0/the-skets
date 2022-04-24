@@ -19,7 +19,14 @@ song_mapping = {
     "day-3-alright": "Alright - Supergrass",
     "day-3-local-boy": "Local Boy - The Rifles",
     "day-3-while-my-guitar-gently-weeps": "While My Guitar Gently Weeps - The Beatles",
-    "day-3-smells-like-teen-spirit": "Smells Like Teen Spirit - Nirvana"
+    "day-3-smells-like-teen-spirit": "Smells Like Teen Spirit - Nirvana",
+    "day-4-the-tracks": "The Tracks - The Skets",
+    "day-4-another-day": "Another Day - The Skets",
+    "day-4-in-the-city": "In The City - The Jam",
+    "day-4-there-she-goes": "There She Goes - The La's",
+    "day-4-live-forever": "Live Forever - Oasis",
+    "day-4-rock-n-roll-star": "Rock 'N' Roll Star - Oasis",
+    "day-4-caught-by-the-fuzz": "Caught By The Fuzz - Supergrass"
 }
 
 url_mapping = {
@@ -36,7 +43,14 @@ url_mapping = {
     "day-3-alright": "https://www.youtube-nocookie.com/embed/19jg1cSniYE",
     "day-3-local-boy": "https://www.youtube-nocookie.com/embed/t-CCvlnw-dg",
     "day-3-while-my-guitar-gently-weeps": "https://www.youtube-nocookie.com/embed/A70eTmmvGoE",
-    "day-3-smells-like-teen-spirit": "https://www.youtube-nocookie.com/embed/CL9d6gIKUPU"
+    "day-3-smells-like-teen-spirit": "https://www.youtube-nocookie.com/embed/CL9d6gIKUPU",
+    "day-4-the-tracks": "https://www.youtube-nocookie.com/embed/EjKN72CtzzM",
+    "day-4-another-day": "https://www.youtube-nocookie.com/embed/a0jxQF2JsrM",
+    "day-4-in-the-city": "https://www.youtube-nocookie.com/embed/Kx1z-XNAfo8",
+    "day-4-there-she-goes": "https://www.youtube-nocookie.com/embed/I8rAW7PWAj0",
+    "day-4-live-forever": "https://www.youtube-nocookie.com/embed/Un147k2Vses",
+    "day-4-rock-n-roll-star": "https://www.youtube-nocookie.com/embed/wVAr5p5Xn1o",
+    "day-4-caught-by-the-fuzz": "https://www.youtube-nocookie.com/embed/B_MU_3EMHmM"
 }
 
 def get_comments(video_id):
